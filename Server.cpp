@@ -39,3 +39,9 @@ void Server::startServer()
         }
     }
 }
+
+int Server::main()
+{
+    startServer();
+    return 0;
+}

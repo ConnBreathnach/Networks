@@ -20,3 +20,8 @@ void Client::startClient()
     }
 
 }
+int Client::main()
+{
+    startClient();
+    return 0;
+}

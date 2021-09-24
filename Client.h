@@ -13,6 +13,8 @@ class Client: public Node {
 public:
     Client();
     void startClient();
+
+    int main();
 };
 
 

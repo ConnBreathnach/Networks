@@ -17,6 +17,7 @@ protected:
     int socket_fd, port_number;
 public:
     Node(int port_number);
+    virtual int main();
 };
 
 
