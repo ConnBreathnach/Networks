@@ -13,8 +13,6 @@ public:
     char *connectedMessage = "Server received message";
     Server();
     void startServer();
-
-    int main();
 };
 
 

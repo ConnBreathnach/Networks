@@ -16,8 +16,7 @@ protected:
     char buffer[128] = {0};
     int socket_fd, port_number;
 public:
-    Node(int port_number);
-    virtual int main();
+    Node(int port_number = 69420);
 };
 
 

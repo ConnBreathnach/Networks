@@ -14,7 +14,7 @@ public:
     Client();
     void startClient();
 
-    int main();
+    
 };
 
 
