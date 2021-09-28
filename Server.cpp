@@ -36,10 +36,11 @@ void Server::startServer()
     // }
 
     //Server is now bound and listening, run loop forever
-    // while(true)
-    // {
+    while(true)
+    {
         struct sockaddr_in cliaddr;
-        int was_received = recvfrom(socket_fd, buffer, sizeof(buffer), MSG_WAITALL,(sockaddr *)&cliaddr, (socklen_t*)sizeof(cliaddr));
+        socklen_t len = sizeof(cliaddr);
+        int was_received = recvfrom(socket_fd, buffer, sizeof(buffer), MSG_WAITALL,(struct sockaddr *)&cliaddr, &len);
         
         if(was_received < 0)
         {
@@ -53,6 +54,6 @@ void Server::startServer()
             
         }
         
-    // }
+    }
 }
 
