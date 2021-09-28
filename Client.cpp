@@ -18,14 +18,11 @@ void Client::startClient()
         exit(1);
     }
     printf("Client connected\n");
-    // while(true)
-    // {
-        // cout << "Enter message to send to server!\n";
-        // cin >> buffer;
-        // printf("%s \n", buffer);
-        buffer[0] = 'a';
-        buffer[1] = 'b';
-        int was_sent = send(socket_fd, buffer, sizeof(buffer), MSG_CONFIRM);
+    while(true)
+    {
+        cout << "Enter message to send to server!\n";
+        cin >> buffer;
+        int was_sent = sendto(socket_fd, buffer, sizeof(buffer), MSG_CONFIRM, (sockaddr *)&address, sizeof(address));
         if(was_sent == -1)
         {
             printf("Error sending message\n");
@@ -35,6 +32,7 @@ void Client::startClient()
         {
             printf("%d bytes sent\n", was_sent);
         }
-    // }
+        // if(recvfrom(socket_fd, (char *)buffer, sizeof(buffer), MSG_WAITALL,(sockaddr *)&cliaddr, (socklen_t*)sizeof(cliaddr)) < 0)
+    }
 
 }

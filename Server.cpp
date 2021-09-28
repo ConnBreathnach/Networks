@@ -36,15 +36,23 @@ void Server::startServer()
     // }
 
     //Server is now bound and listening, run loop forever
-    while(true)
-    {
-        int was_received = recvfrom(socket_fd, buffer, sizeof(buffer), 0,(sockaddr *)&address, (socklen_t*)sizeof(address));
-        if(was_received > -1)
+    // while(true)
+    // {
+        struct sockaddr_in cliaddr;
+        int was_received = recvfrom(socket_fd, buffer, sizeof(buffer), MSG_WAITALL,(sockaddr *)&cliaddr, (socklen_t*)sizeof(cliaddr));
+        
+        if(was_received < 0)
+        {
+            perror("Error receiving message");
+        }
+        else
         {
             // int was_read = read(clientSocket, buffer, sizeof(buffer));
             printf("Received message: %s \n", buffer);
-            send(socket_fd, connectedMessage, sizeof(connectedMessage), MSG_CONFIRM);
+            sendto(socket_fd, connectedMessage, sizeof(connectedMessage), MSG_CONFIRM, (sockaddr *)&cliaddr, sizeof(cliaddr));
+            
         }
-    }
+        
+    // }
 }
 

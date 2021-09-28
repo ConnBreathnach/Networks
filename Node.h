@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-
+#include <arpa/inet.h>
 class Node {
 protected:
     struct sockaddr_in address;
