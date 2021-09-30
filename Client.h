@@ -9,7 +9,6 @@
 #include <iostream>
 using namespace std;
 class Client: public Node {
-
 public:
     Client();
     void startClient();

@@ -11,6 +11,10 @@ Client::Client()
 
 void Client::startClient()
 {
+    address.sin_addr.s_addr = inet_addr("172.20.0.2");
+
+//    address.sin_port = htons(12345);
+    printf("Client address: %s \n", inet_ntoa(address.sin_addr));
     int connectFailed = connect(socket_fd, (sockaddr *)&address, sizeof(address));
     if(connectFailed != 0)
     {
@@ -22,7 +26,7 @@ void Client::startClient()
     {
         cout << "Enter message to send to server!\n";
         cin >> buffer;
-        int was_sent = sendto(socket_fd, buffer, sizeof(buffer), MSG_CONFIRM, (sockaddr *)&address, sizeof(address));
+        int was_sent = send(socket_fd, buffer, sizeof(buffer), MSG_CONFIRM);
         if(was_sent == -1)
         {
             printf("Error sending message\n");
