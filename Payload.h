@@ -4,10 +4,23 @@
 
 #ifndef NETWORKS_PAYLOAD_H
 #define NETWORKS_PAYLOAD_H
+#define MAX_DATA_SIZE 64
+
+#include "Header.h"
 
 
 class Payload {
+    Header header;
+    char data_buffer[MAX_DATA_SIZE];
+    bool loadData(char* data);
 
+public:
+    bool loadData(float data);
+    char* payload;
+    void setPayload();
+    char* getPayload();
+
+    Header getHeader();
 };
 
 

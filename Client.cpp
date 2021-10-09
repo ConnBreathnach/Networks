@@ -36,7 +36,7 @@ void Client::startClient()
         {
             printf("%d bytes sent\n", was_sent);
         }
-        // if(recvfrom(socket_fd, (char *)buffer, sizeof(buffer), MSG_WAITALL,(sockaddr *)&cliaddr, (socklen_t*)sizeof(cliaddr)) < 0)
+        if(recvfrom(socket_fd, (char *)buffer, sizeof(buffer), MSG_WAITALL,(sockaddr *)&address, (socklen_t*)sizeof(address)) < 0);
     }
 
 }

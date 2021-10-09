@@ -12,7 +12,7 @@ Server::Server()
 
 void Server::startServer()
 {
-    address.sin_addr.s_addr = INADDR_ANY;
+//    address.sin_addr.s_addr = INADDR_ANY;
     printf("Server ip address: %s \n", inet_ntoa(address.sin_addr));
     int opt = 1;
     int socket_failed = setsockopt(socket_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt));

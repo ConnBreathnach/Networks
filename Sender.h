@@ -6,8 +6,13 @@
 #define NETWORKS_SENDER_H
 
 
-class Sender {
+#include "Node.h"
 
+class Sender : public Node {
+public:
+    struct sockaddr_in peer_addr;
+    void connectToSocket(sockaddr_in peer_addr);
+    void sendPacket(char packet[]);
 };
 
 

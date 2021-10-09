@@ -10,13 +10,15 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "Payload.h"
 class Node {
 protected:
     struct sockaddr_in address;
-    char buffer[128] = {0};
+    Header header;
+    Payload payload;
     int socket_fd, port_number;
 public:
-    Node(int port_number = 69420);
+    Node(int port_number = 69420); //nice
 };
 
 
