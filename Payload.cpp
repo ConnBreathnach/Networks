@@ -28,3 +28,7 @@ char* Payload::getPayload() {
 Header Payload::getHeader(){
     return this->header;
 }
+
+char* Payload::getData() {
+    return this->data_buffer;
+}

@@ -4,12 +4,19 @@
 
 #include "Database.h"
 
-void Database::saveHeatData(float heat, int actuatorId) {
-    this->heatData.at(actuatorId) = heat;
+void Database::saveHeatData(float heat, int actuatorId, int timestamp) {
+    if(heatTimestamps.at(actuatorId) < timestamp) {
+        this->heatData.at(actuatorId) = heat;
+        this->heatTimestamps.at(actuatorId) = timestamp;
+    }
 }
 
-void Database::saveMassData(float mass, int actuatorId) {
-    this->massData.at(actuatorId) = mass;
+void Database::saveMassData(float mass, int actuatorId, int timestamp) {
+    if(massTimestamps.at(actuatorId) < timestamp)
+    {
+        this->massData.at(actuatorId) = mass;
+        this->massTimestamps.at(actuatorId) = timestamp;
+    }
 }
 
 float Database::getHeat(int id) {
@@ -25,6 +32,6 @@ float* Database::getHeatAndMass(int id) {
     return heatAndMass;
 }
 
-float* Database::getHeats(int ids[]) {
-    float heats[] = new float[ids.length];
-}
+//float* Database::getHeats(int ids[]) {
+//    float heats[] = new float[ids.length];
+//}

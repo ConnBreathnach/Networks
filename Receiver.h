@@ -6,7 +6,7 @@
 #define NETWORKS_RECEIVER_H
 #include "Node.h"
 
-class Receiver: public Node {
+class Receiver: virtual public Node {
 public:
     char *connectedMessage = "Server received message";
     Receiver();

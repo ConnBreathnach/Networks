@@ -19,7 +19,7 @@ public:
     char* payload;
     void setPayload();
     char* getPayload();
-
+    char* getData();
     Header getHeader();
 };
 
