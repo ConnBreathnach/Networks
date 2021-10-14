@@ -11,11 +11,14 @@
 #include "Database.h"
 
 class Broker: public Receiver, public Sender {
-    Broker();
     Database database;
     void processPayload();
     void processSubscriber(Header header, char* data);
     void processPublisher(Header header, char* data);
+
+
+public:
+    Broker();
 };
 
 

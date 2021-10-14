@@ -8,6 +8,7 @@ Receiver::Receiver()
     printf("Server ip address: %s \n", inet_ntoa(address.sin_addr));
     setOptions();
     bind();
+    listen();
 }
 
 void Receiver::setOptions() {

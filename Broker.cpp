@@ -6,8 +6,10 @@
 
 
 Broker::Broker(){
-
+    processPayload();
 }
+
+
 
 void Broker::processPayload() {
     Header header = payload.getHeader();
@@ -72,3 +74,4 @@ void Broker::processSubscriber(Header header, char *data) {
     }
     sendto(socket_fd, &sendData, sizeof(sendData), MSG_CONFIRM, (sockaddr *)&cliaddr, sizeof(cliaddr));
 }
+

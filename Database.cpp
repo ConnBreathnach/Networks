@@ -35,3 +35,4 @@ float* Database::getHeatAndMass(int id) {
 //float* Database::getHeats(int ids[]) {
 //    float heats[] = new float[ids.length];
 //}
+
