@@ -12,9 +12,11 @@
 #include <string>
 
 class Actuator : public Sender {
-    Actuator();
     float generateNumber(int min, int max);
     void waitTime(int numSecs);
+
+public:
+    Actuator();
 };
 
 

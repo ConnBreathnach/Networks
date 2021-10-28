@@ -5,11 +5,15 @@
 #include "Actuator.h"
 
 Actuator::Actuator() {
-    connectToSocket();
+    connectToSocket("172.20.0.2");
     while(true) {
-        waitTime(5);
+
+        printf("Sending data");
+        waitTime(1);
         float randomTemp = generateNumber(16, 27);
+        printf("Temp: %f \n", randomTemp);
         this->payload.loadData(randomTemp);
+        sendPacket(this->payload.getPayload());
     }
 }
 

@@ -5,7 +5,7 @@
 #include "Header.h"
 Header::Header() {}
 
-Header::Header(char type, int topic, int id) {
+Header::Header(char type, char topic, int id) {
     this->type = type;
     this->topic = topic;
     this->id = id;

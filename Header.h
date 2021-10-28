@@ -8,14 +8,14 @@
 
 class Header {
 public:
-    char type; //Either 's' for subscriber (client) or 'p' for publisher (actuator)
+    char type; //Either 's' for subscriber (client) or 'p' for publisher (actuator). 'g' is for gather (return info from database). 'u' for unsubscribe. 'a' for acknowledge
 
-    int topic; // Type of data from actuators send/wanted
+    char topic; // Type of data from actuators send/wanted
 
     int id;
     int timeStamp; // which message number this is from actuators. Used for caching/database management
     Header();
-    Header(char type, int topic, int id);
+    Header(char type, char topic, int id);
     void incrementTimestamp();
     char* convertToCharArray();
 };

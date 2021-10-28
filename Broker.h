@@ -9,16 +9,19 @@
 #include "Receiver.h"
 #include "Sender.h"
 #include "Database.h"
+#include <vector>
 
-class Broker: public Receiver, public Sender {
+class Broker: public Sender, public Receiver {
     Database database;
     void processPayload();
     void processSubscriber(Header header, char* data);
     void processPublisher(Header header, char* data);
-
+    std::vector<std::vector<sockaddr_in>> subscribers;
 
 public:
     Broker();
+
+    void processGatherer(Header header, char *data);
 };
 
 

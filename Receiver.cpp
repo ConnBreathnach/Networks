@@ -36,8 +36,8 @@ void Receiver::bind() {
 void Receiver::listen() {
         struct sockaddr_in cliaddr;
         socklen_t len = sizeof(cliaddr);
-        int was_received = recvfrom(socket_fd, payload.payload, sizeof(payload.payload), MSG_WAITALL, (struct sockaddr *) &cliaddr, &len);
-
+        //int was_received = recv(socket_fd, payload.payload, sizeof(payload.payload), MSG_WAITALL);
+        int was_received = recvfrom(socket_fd, payload.payload, sizeof(payload.payload), MSG_WAITALL,(struct sockaddr *)&cliaddr, &len);
         if (was_received < 0) {
             perror("Error receiving message");
         } else {
