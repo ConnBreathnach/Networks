@@ -10,7 +10,7 @@ void Sender::connectToSocket(char* peer_ip_addr)
 {
 //    peer_addr.sin_addr = INADDR_ANY;
     address.sin_addr.s_addr = inet_addr(peer_ip_addr);
-    printf("%s \n", peer_ip_addr);
+    printf("Address: %s \n", inet_ntoa(address.sin_addr));
 
 
     int connected_successfully = connect(socket_fd, (sockaddr*)&this->address, sizeof(this->address));
@@ -25,6 +25,7 @@ void Sender::connectToSocket(char* peer_ip_addr)
 void Sender::sendPacket(char packet[])
 {
     socklen_t peer_len = sizeof(this->address);
+    printf("Address of peer: %s \n", inet_ntoa(this->address.sin_addr));
     int message_send_successfully = sendto(socket_fd, packet, sizeof(packet), MSG_CONFIRM, (sockaddr*)&this->address, peer_len);
     if(message_send_successfully < 0) {
 
