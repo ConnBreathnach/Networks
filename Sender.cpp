@@ -6,6 +6,10 @@
 #include <errno.h>
 #include <cstring>
 
+Sender::Sender() {
+
+}
+
 void Sender::connectToSocket(char* peer_ip_addr)
 {
 //    peer_addr.sin_addr = INADDR_ANY;
@@ -22,7 +26,7 @@ void Sender::connectToSocket(char* peer_ip_addr)
     printf("\n Connected successfully\n");
 }
 
-void Sender::sendPacket(char packet[])
+void Sender::sendPacket(char* packet)
 {
     socklen_t peer_len = sizeof(this->address);
     printf("Address of peer: %s \n", inet_ntoa(this->address.sin_addr));

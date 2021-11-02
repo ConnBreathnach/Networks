@@ -15,6 +15,7 @@ class Payload {
     bool loadData(char* data);
 
 public:
+    Payload();
     Header header;
     bool loadData(float data);
     char* payload;

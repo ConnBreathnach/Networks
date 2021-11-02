@@ -4,6 +4,7 @@
 
 #include "Payload.h"
 
+Payload::Payload() {}
 
 bool Payload::loadData(char *data) {
     snprintf(this->data_buffer, MAX_DATA_SIZE, "%c", data); // Loads data into data buffer

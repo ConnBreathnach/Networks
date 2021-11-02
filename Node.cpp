@@ -6,7 +6,7 @@
 
 Node::Node(int port_number)
 {
-    port_number = port_number;
+    this->port_number = port_number;
     address.sin_port = htons(port_number);
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;

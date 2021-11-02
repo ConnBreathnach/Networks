@@ -6,6 +6,7 @@
 
 
 Broker::Broker(){
+
 }
 
 
@@ -109,6 +110,7 @@ void Broker::acknowledge(sockaddr_in addr){
     Payload ack_payload;
     ack_payload.header = ack_header;
     ack_payload.setPayload();
-    sendPacket(ack_payload.getPayload());
+    char* payloadToSend = ack_payload.getPayload();
+    sendPacket(payloadToSend);
 }
 

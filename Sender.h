@@ -10,9 +10,10 @@
 
 class Sender : virtual public Node {
 public:
+    Sender();
     struct sockaddr_in peer_addr;
     void connectToSocket(char* peer_ip_addr);
-    void sendPacket(char packet[]);
+    void sendPacket(char* packet);
 };
 
 

@@ -8,6 +8,7 @@
 #include "Node.cpp"
 #include "Receiver.h"
 #include "Receiver.cpp"
+#include "Sender.cpp"
 #include "Database.h"
 #include "Database.cpp"
 #include "Payload.h"
@@ -16,4 +17,7 @@
 #include "Header.cpp"
 int main() {
     Broker *broker = new Broker();
+    while (true){
+        broker->processPayload();
+    }
 }

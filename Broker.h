@@ -13,7 +13,7 @@
 
 class Broker: public Sender, public Receiver {
     Database database;
-    void processPayload();
+
     void processSubscriber(Header header, char* data);
     void processPublisher(Header header, char* data);
     std::vector<std::vector<sockaddr_in>> subscribers;
@@ -26,6 +26,8 @@ public:
     void unsubscribe(Header header);
 
     void acknowledge(sockaddr_in addr);
+
+    void processPayload();
 };
 
 

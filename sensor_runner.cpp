@@ -15,7 +15,12 @@
 #include "Header.h"
 #include "Header.cpp"
 #include "time.h"
+#include <iostream>
 
 int main() {
-    Sensor *sensor = new Sensor();
+    char type;
+    int id;
+    std::cout << "Enter Sensor type and id\n";
+    std::cin >> type >> id;
+    Sensor *sensor = new Sensor(type, id);
 }

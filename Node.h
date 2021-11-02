@@ -11,6 +11,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include "Payload.h"
+#include "Header.h"
 class Node {
 protected:
     struct sockaddr_in address;

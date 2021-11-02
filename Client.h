@@ -5,10 +5,11 @@
 #ifndef NETWORKS_CLIENT_H
 #define NETWORKS_CLIENT_H
 
-#include "Node.h"
+#include "Sender.h"
+#include "Receiver.h"
 #include <iostream>
 using namespace std;
-class Client: public Node {
+class Client: public Sender, public Receiver {
 public:
     Client();
     void startClient();
