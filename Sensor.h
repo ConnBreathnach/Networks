@@ -16,7 +16,7 @@ class Sensor : public Sender {
     void waitTime(int numSecs);
 
 public:
-    Sensor();
+    Sensor(char topic, int id);
 };
 
 

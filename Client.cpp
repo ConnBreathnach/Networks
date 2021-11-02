@@ -12,7 +12,7 @@ Client::Client()
 char* Client::createMessage() {
     char topic, type;
     int id;
-    cout << "Enter message to send to server, in the format topic type id where topic is s/sub/g/get, and type and id are integers.\n";
+    cout << "Enter message to send to server, in the format topic type id where topic is s/g for subscriber or gatherer, and type and id are integers.\n";
     cin >> topic >> type >> id;
     this->payload.header = new Header(topic, type, id);
     this->payload.setPayload();

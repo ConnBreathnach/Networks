@@ -4,7 +4,9 @@
 
 #include "Sensor.h"
 
-Sensor::Sensor() {
+Sensor::Sensor(char topic, int id) {
+    Header sensorHeader = new Header('p', topic, id);
+    this->payload.header = sensorHeader;
     connectToSocket("172.20.0.2");
     while(true) {
 
