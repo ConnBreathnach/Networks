@@ -2,8 +2,8 @@
 // Created by conn on 15/10/2021.
 //
 
-#include "Actuator.h"
-#include "Actuator.cpp"
+#include "Sensor.h"
+#include "Sensor.cpp"
 #include "Node.h"
 #include "Node.cpp"
 #include "Sender.h"
@@ -17,5 +17,5 @@
 #include "time.h"
 
 int main() {
-    Actuator *actuator = new Actuator();
+    Sensor *sensor = new Sensor();
 }

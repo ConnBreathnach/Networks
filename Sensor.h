@@ -2,8 +2,8 @@
 // Created by conn on 01/10/2021.
 //
 
-#ifndef NETWORKS_ACTUATOR_H
-#define NETWORKS_ACTUATOR_H
+#ifndef NETWORKS_SENSOR_H
+#define NETWORKS_SENSOR_H
 
 
 #include "Sender.h"
@@ -11,13 +11,13 @@
 #include <time.h>
 #include <string>
 
-class Actuator : public Sender {
+class Sensor : public Sender {
     float generateNumber(int min, int max);
     void waitTime(int numSecs);
 
 public:
-    Actuator();
+    Sensor();
 };
 
 
-#endif //NETWORKS_ACTUATOR_H
+#endif //NETWORKS_SENSOR_H

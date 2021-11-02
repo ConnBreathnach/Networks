@@ -10,11 +10,12 @@
 
 
 class Payload {
-    Header header;
+
     char data_buffer[MAX_DATA_SIZE];
     bool loadData(char* data);
 
 public:
+    Header header;
     bool loadData(float data);
     char* payload;
     void setPayload();

@@ -22,3 +22,10 @@ char* Header::convertToCharArray() {
     sprintf(header, "%c%d%d%d", this->type, this->topic, this->id, this->timeStamp);
     return header;
 }
+
+Header::Header(Header *pHeader) {
+    this->type = pHeader->type;
+    this->topic = pHeader->topic;
+    this->id = pHeader->id;
+    this->timeStamp = 0;
+}

@@ -22,6 +22,10 @@ public:
     Broker();
 
     void processGatherer(Header header, char *data);
+
+    void unsubscribe(Header header);
+
+    void acknowledge(sockaddr_in addr);
 };
 
 

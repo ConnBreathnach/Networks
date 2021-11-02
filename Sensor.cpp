@@ -2,9 +2,9 @@
 // Created by conn on 01/10/2021.
 //
 
-#include "Actuator.h"
+#include "Sensor.h"
 
-Actuator::Actuator() {
+Sensor::Sensor() {
     connectToSocket("172.20.0.2");
     while(true) {
 
@@ -17,14 +17,14 @@ Actuator::Actuator() {
     }
 }
 
-float Actuator::generateNumber(int min, int max) {
+float Sensor::generateNumber(int min, int max) {
     float random = ((float) rand()) / (float) RAND_MAX;
     float diff = max - min;
     float r = random * diff;
     return min + r;
 }
 
-void Actuator::waitTime(int waitSecs) {
+void Sensor::waitTime(int waitSecs) {
     float timeDelta = 0;
     clock_t clk = clock(), temp;
 

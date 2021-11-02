@@ -8,6 +8,8 @@
 
 class Header {
 public:
+    Header(Header *pHeader);
+
     char type; //Either 's' for subscriber (client) or 'p' for publisher (actuator). 'g' is for gather (return info from database). 'u' for unsubscribe. 'a' for acknowledge
 
     char topic; // Type of data from actuators send/wanted

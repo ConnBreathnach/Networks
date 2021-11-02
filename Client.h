@@ -12,7 +12,7 @@ class Client: public Node {
 public:
     Client();
     void startClient();
-
+    char* createMessage();
     
 };
 

@@ -24,9 +24,9 @@ void Broker::processPayload() {
             processGatherer(header, data);
             break;
         case('u'):
+            unsubscribe(header);
             break;
-        case('a'):
-            break;
+
         default:
             printf("Header type invalid");
             break;
@@ -35,7 +35,12 @@ void Broker::processPayload() {
 
 void Broker::processSubscriber(Header header, char *data) {
     int topic = header.topic;
-    
+    int id = header.id;
+    struct sockaddr_in cliaddr;
+    std::vector<sockaddr_in> topic_subs = subscribers.at(topic);
+    topic_subs.at(id) = cliaddr;
+    subscribers.at(topic) = topic_subs;
+    acknowledge(cliaddr);
 }
 
 void Broker::processPublisher(Header header, char *data) {
@@ -44,6 +49,11 @@ void Broker::processPublisher(Header header, char *data) {
     int id = header.id;
     int timestamp = header.timeStamp;
     float newData = atof(data);
+    std::vector<sockaddr_in> topic_subs = subscribers.at(topic);
+    for(sockaddr_in sub_addr : topic_subs)
+    {
+        sendto(socket_fd, &newData, sizeof(newData), MSG_CONFIRM, (sockaddr *)&sub_addr, sizeof(sub_addr));
+    }
     switch (topic) {
         case 1:
             database.saveHeatData(newData, id, timestamp);
@@ -83,5 +93,22 @@ void Broker::processGatherer(Header header, char *data) {
             break;
     }
     sendto(socket_fd, &sendData, sizeof(sendData), MSG_CONFIRM, (sockaddr *)&cliaddr, sizeof(cliaddr));
+}
+
+void Broker::unsubscribe(Header header){
+    int topic = header.topic;
+    int id = header.id;
+    struct sockaddr_in cliaddr;
+    std::vector<sockaddr_in> topic_subs = subscribers.at(topic);
+    topic_subs.erase(topic_subs.begin() + id);
+    subscribers.at(topic) = topic_subs;
+}
+
+void Broker::acknowledge(sockaddr_in addr){
+    Header ack_header = new Header('a', 0, 0);
+    Payload ack_payload;
+    ack_payload.header = ack_header;
+    ack_payload.setPayload();
+    sendPacket(ack_payload.getPayload());
 }
 
